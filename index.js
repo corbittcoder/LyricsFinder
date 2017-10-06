@@ -1,28 +1,20 @@
-$("searchButton").click(function(){
-  var myurl= "https://api.lyrics.ovh/v1/" + $("#artist").val()
-  + "/" + $("#title").val() + "/";
-  $.ajax({
-    url : myurl,
-    dataType : "xml",
-    "text xml" : JQuery.parseXML,
-    success : function(parse) {
-      $lyrics = $parse.find ("lyrics");
-      console.log(lyrics);
-      $("#lyrics").html( $lyrics.text() );
-    }
-  });
+$(document).ready(function() {
+	$("#searchButton").click(function(e) {
+		var artist = $("#artist").val();
+		var title = $("#title").val();
+		e.preventDefault();
+		var myurl = 'https://api.lyrics.ovh/v1/' + artist + '/' + title;
+		$.getJSON(myurl, function(data) {
+			$("#lyrics").html(jsonEscape(data.lyrics));
+		})
+		.fail(function() {
+			$("#lyrics").html("Could not find " + title + " by " + artist);
+		})
+		.always(function(data) {
+			console.log(data);
+		});
+	});
+	function jsonEscape(str)  {
+		return str.replace(new RegExp("\n", 'g'), "<br>");
+	}
 });
-$("#searchButton").ready(function() {
-        $.ajax({ type: "POST",
-                        url: myurl,
-                        data: "<formData client=\"\" year=\"\" categories=\"\" tags=\"\" freeText=\"\" count=\"34\" page=\"1\"></formData>",
-                        contentType: "text/xml",
-                        dataType: "xml",
-                        cache: false,
-                        error: function() { alert("No data found."); },
-                        success: function(xml) {
-                            alert("it works");
-                            alert($(xml).find("project")[0].attr("id"));
-                        }
-        });
-    });
