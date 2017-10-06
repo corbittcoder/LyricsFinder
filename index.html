@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
+	<title>Lyrics Finder</title>
 	<script
 	  src="http://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	  crossorigin="anonymous">
 	</script>
+<<<<<<< HEAD
 	<script type="text/javascript">
 	</script>
+=======
+>>>>>>> df1de539104aabb6c8c3a22bd56eab3e8ca75524
 	<script src="index.js"></script>
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<form>
-		<input id="artist" type="text" value="Coldplay"></input>
-		<input id="title"  type="text" value="Adventure of a Life time"></input>
-		<button id="searchButton">Search Lyrics</button>
-	</form>
-
-	<div id="lyrics">Lyrics appear here.</div>
-	<!--<div id="player"></div>-->
+<div class="container-fluid">
+	<div class="text-center">
+		<h1>Lyrics Finder</h1>
+		<hr>
+		<p>Type in artist and song title and click the Search Lyrics button to get song lyrics.</p>
+		<form>
+			<input id="artist" type="text" alt="Artist" placeholder="Artist"></input>
+			<input id="title"  type="text" alt="Song title" placeholder="Song Title"></input>
+			<button id="searchButton">Search Lyrics</button>
+			<br><br>
+		</form>
+	</div>
+	<div class="jumbotron">
+		<div id="lyrics" class="text-center">Lyrics appear here.</div>
+	</div>
+</div>
+>>>>>>> df1de539104aabb6c8c3a22bd56eab3e8ca75524
 </body>
 </html>
